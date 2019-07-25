@@ -1,0 +1,1 @@
+Add-VpnConnection -AllUserConnection -Name "vpnPL" -ServerAddress "vpnpl.mcc-hvac.com" -TunnelType L2tp -EncryptionLevel Optional -L2tpPsk "Ol@w@" -AuthenticationMethod Pap -Force
