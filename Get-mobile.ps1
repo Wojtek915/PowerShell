@@ -1,4 +1,4 @@
-﻿$ous = 'OU=Users,OU=Olawa,DC=eu,DC=mcc-hvac,DC=in'
+﻿$ous = ''
 
 Import-Module ActiveDirectory 
 
