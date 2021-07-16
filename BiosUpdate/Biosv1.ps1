@@ -1,6 +1,6 @@
-﻿#$OU="OU=Computers,OU=Olawa,DC=eu,DC=mcc-hvac,DC=in"
+#$OU="OU=..."
 #$computers = Get-ADComputer -Filter *  -SearchBase $OU |sort -Descending | select -ExpandProperty Name 
-$computers =("olanb060") 
+
 foreach ($computer in $computers) {
 
 
