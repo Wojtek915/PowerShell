@@ -8,7 +8,7 @@ function Remove-StringLatinCharacters
 
 Import-Module ActiveDirectory 
 
-$ous = 'OU=Users-Production,OU=Olawa,DC=eu,DC=mcc-hvac,DC=in','OU=Users-Disabled,OU=Olawa,DC=eu,DC=mcc-hvac,DC=in','OU=Users,OU=Olawa,DC=eu,DC=mcc-hvac,DC=in'#,'OU=Users,OU=Stockholm,DC=eu,DC=mcc-hvac,DC=in','OU=Users,OU=Ningbo,DC=eu,DC=mcc-hvac,DC=in','OU=Users,OU=Renningen,DC=eu,DC=mcc-hvac,DC=in','OU=Users,OU=Norrtalje,DC=eu,DC=mcc-hvac,DC=in','OU=Users-Special,OU=Olawa,DC=eu,DC=mcc-hvac,DC=in'
+$ous = ''
 
 ForEach ($ou in $ous) {
  
@@ -23,8 +23,8 @@ ForEach ($User In $Users)
     $NewName = "$Last, $First"
 	$SAM = $User.SamAccountName	
     $logonName = $User.UserPrincipalName.Substring(0,$User.UserPrincipalName.IndexOf("@"))
-	$vbg = Remove-StringLatinCharacters("$logonName@vbggroup.onmicrosoft.com")
-	$mcc = Remove-StringLatinCharacters("$logonName@mcc-hvac.com")
+	$vbg = Remove-StringLatinCharacters("$logonName@")
+	$mcc = Remove-StringLatinCharacters("$logonName@")
 	$correctVBG = $false
 	$correctMCC = $false
 	$correctSIP = $false
@@ -67,26 +67,9 @@ ForEach ($User In $Users)
 
     #Regional properiteis, depend on the location
     If ($ou.Contains("Olawa")) {
-        Set-ADUser -Identity $SAM -city "Olawa" -office "Olawa" -StreetAddress "ul. Szwedzka 1"  -company "Mobile Climate Control Sp. z o.o."  -Replace @{c="PL";co="Poland";countryCode=616}
+        Set-ADUser -Identity $SAM  -Replace @{c="PL";co="Poland";countryCode=616}
         Write-Host "$Display $mcc $vbg"
     }
-    ElseIf ($ou.Contains("Renningen")) {
-        Set-ADUser -Identity $SAM  -city "Renningen"   -office "Renningen" -StreetAddress "Jaegerstrasse 33" -company "Mobile Climate Control GmbH" -Replace @{c="DE";co="Germany";countryCode=276}
-    }
-    ElseIf ($ou.Contains("Ningbo")) {
-        Set-ADUser -Identity $SAM -city "Ningbo" -office "Ningbo" -StreetAddress "No.88 Jinchuan Road" -company "Ningbo Mobile Climate Control Manufacturing Co.,LTD" -Replace @{c="CN";co="China";countryCode=156; }
-    }
-    ElseIf ($ou.Contains("Norrtalje")){
-        Set-ADUser -Identity $SAM -City "Norrtälje" -office "Norrtälje" -StreetAddress "Sikvägen 9" -company "Mobile Climate Control Sverige AB" -Replace @{countryCode=752}
-    }
-   
-    Else  {
-        Set-ADUser -Identity $SAM -Replace @{countryCode=752}
-    }
-   
-    If ($ou.Contains("Production")){
-        Set-ADUser -Identity $SAM -city "Olawa" -office "ww" -StreetAddress "ul. Szwedzka 1"  -company "Mobile Climate Control Sp. z o.o."  -Replace @{c="PL";co="Poland";countryCode=616}
-        Write-Host "$Display $mcc $vbg"
     
     } 
 
