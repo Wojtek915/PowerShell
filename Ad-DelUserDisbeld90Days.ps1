@@ -1,9 +1,9 @@
-﻿$users= Get-ADUser -SearchBase 'OU=Users-Disabled,OU=Olawa,DC=eu,DC=mcc-hvac,DC=in' -Filter {Enabled -EQ $false}  -Properties name, Enabled, LastlogonDate | where  {( ($_.lastlogonDate) -LT  ((Get-Date).AddDays(-90)))} 
+﻿$users= Get-ADUser -SearchBase '' -Filter {Enabled -EQ $false}  -Properties name, Enabled, LastlogonDate | where  {( ($_.lastlogonDate) -LT  ((Get-Date).AddDays(-90)))} 
 
 
-$smtpServer="mcchvac-com0i.mail.protection.outlook.com" 
-$from = "Administrator IT <mcc-eu-wsr01@mcc-hvac.com>"  
-$emailaddress = "DL-OLA-IT@mcc-hvac.com" 
+$smtpServer="" 
+$from = ""  
+$emailaddress = "" 
 # 
 
  
