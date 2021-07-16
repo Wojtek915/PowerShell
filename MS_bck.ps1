@@ -1,6 +1,6 @@
-﻿$smtpServer="mcchvac-com0i.mail.protection.outlook.com" 
-$from = "Administrator IT <mcc-eu-wsr01@mcc-hvac.com>"  
- $emailaddress = "wojciech.konikiewicz@mcc-hvac.com" 
+﻿$smtpServer="" 
+$from = ""  
+ $emailaddress = "" 
 # 
 
 
