@@ -1,9 +1,9 @@
 ﻿
-$smtpServer="mcchvac-com0i.mail.protection.outlook.com" 
+$smtpServer="" 
 $expireindays = 15
-$from = "Administrator IT <it@mcc-hvac.com>" 
+$from = "" 
 $testing = "Disabled" # Set to Disabled to Email Users 
-$testRecipient = "wojciech.konikiewicz@mcc-hvac.com" 
+$testRecipient = "" 
 # 
 ################################################################################################################### 
  
