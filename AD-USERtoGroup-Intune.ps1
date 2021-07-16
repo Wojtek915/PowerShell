@@ -1,6 +1,6 @@
-﻿$dest=Get-ADUser -SearchBase 'OU=Users,OU=Olawa,DC=eu,DC=mcc-hvac,DC=in' -Filter {Mobile -like '+48*'}  -Properties *
+﻿$dest=Get-ADUser -SearchBase '' -Filter {Mobile -like '+48*'}  -Properties *
 $dest
-$groups= "MCC-EU-APP-Intune-Mobile-Users-Allow"
+$groups= ""
 foreach ($group in $groups) {
 
 $group
