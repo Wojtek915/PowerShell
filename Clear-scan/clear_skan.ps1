@@ -8,7 +8,7 @@
 
 ##### Delete SKAN folder. 
           
-$TargetFolder="\\olasrv02\Public\00. SKANY\" 
+$TargetFolder="" 
 $Files= Get-Childitem  $TargetFolder  -File 
 
 foreach ($File in $Files) 
@@ -33,7 +33,7 @@ foreach ($Dir in $Dirs)
 { 
 
            $PDFs = Get-ChildItem $Dir -Include *.* -Recurse  -File #Build list of PDF
-           Set-Location  $Dir #Set location of start script C\test\(IT, HR, DT etc.)
+           Set-Location  $Dir #Set location of start script
            ForEach ($PDF in $PDFs) # Common, RO, Restricted
            {
                 if ($Dir -ne $NULL) 
@@ -59,9 +59,9 @@ foreach ($Dir in $Dirs)
 
 
     
-$smtpServer="mcchvac-com0i.mail.protection.outlook.com" 
-$from = "Administrator IT <mcc-eu-wsr01@mcc-hvac.com>"  
-$emailaddress = "wojciech.konikiewicz@mcc-hvac.com" 
+$smtpServer="" 
+$from = ""  
+$emailaddress = "" 
 # 
 ################################################################################################################### 
 ###COnvert to HTML################
