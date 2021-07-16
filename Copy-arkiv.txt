@@ -1,3 +1,0 @@
-1. zmapkowaæ Arkiv jako Z:\
-2. Po uruchomieniu wybierz lpik tekstowy z list¹ itemów
-3. Wybierz folder docelowy
