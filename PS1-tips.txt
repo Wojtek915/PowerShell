@@ -1,0 +1,10 @@
+1. Get-WUSettings : The network path was not found.
+
+To work around this issue, start the Remote Registry service. To do this, follow steps:
+
+On the computer where you want to run the cmdlet, select Start, type services.msc in the Start Search box, and then press Enter. Microsoft Management Console starts with the Services snap-in open.
+In the console pane, right-click Remote Registry, and then select Start.
+
+
+
+ 

@@ -1,0 +1,1 @@
+powershell.exe "C:\Users\adminpol\Desktop\PS1\password\passwordexpired.ps1"

@@ -1,15 +1,24 @@
-﻿##### Delete SKAN folder. 
-            
-$TargetFolder="C:\test\00. SKANY\" 
-$Files= Get-Childitem  "C:\test\00. SKANY\"  -File 
+﻿#####################################################
+#name of file
+[string]$data = Get-Date  -Format "yyyyMMdd"
+[string]$pathraport = "C:\Logs\clearskan\" + "raport" + $data + ".txt"
+[string]$raportname =  "raport" + $data + ".txt"
+
+###############################################
+
+##### Delete SKAN folder. 
+          
+$TargetFolder="\\mcc-eu-wsr01\Public\00. SKANY\" 
+$Files= Get-Childitem  $TargetFolder  -File 
 
 foreach ($File in $Files) 
 { 
     if ($File -ne $NULL) 
     { 
       
-      write-host "Deleting File $File " -ForegroundColor "DarkRed" 
-      Remove-Item $File.FullName | out-null
+      $tmp =  "Deleting File $File "
+      $tmp >> $pathraport
+      Remove-Item $File.FullName 
        }
 
     else 
@@ -18,7 +27,7 @@ foreach ($File in $Files)
 }
 
 
-Set-Location "C:\test\00. SKANY"
+Set-Location $TargetFolder
 $Dirs=Get-Childitem $TargetFolder -Recurse -Exclude Fakt* -Directory
 foreach ($Dir in $Dirs) 
 { 
@@ -30,7 +39,8 @@ foreach ($Dir in $Dirs)
                 if ($Dir -ne $NULL) 
                 { 
       
-                  write-host "Deleting File $PDF " -ForegroundColor "DarkRed" 
+                  $tmp =  "Deleting File $PDF"
+                    $tmp >> $pathraport
                   Remove-Item $PDF.FullName | out-null
                    }
 
@@ -38,7 +48,7 @@ foreach ($Dir in $Dirs)
                 { Write-Host "No more files to delete!" -foregroundcolor "Green" } 
            
            }
-           Set-Location "C:\test\00. SKANY"
+           Set-Location $TargetFolder
 
 
 

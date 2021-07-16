@@ -1,0 +1,4 @@
+1. Logfile
+2. menu (1. wszytsko 2. jeden 3. kilka)
+3. wycofaj
+4. exit
