@@ -31,10 +31,6 @@ $cred1 = Import-Clixml C:\Cred_PS1\cred.xml
 ###########################################################
 
 $OUs=
-"OU=Olawa,DC=eu,DC=mcc-hvac,DC=in",
-"OU=Renningen,DC=eu,DC=mcc-hvac,DC=in",
-"OU=Norrtalje,DC=eu,DC=mcc-hvac,DC=in",
-"OU=Ningbo,DC=eu,DC=mcc-hvac,DC=in"
 
 
 
@@ -67,7 +63,7 @@ foreach ($computer in $computers)
                                 }
                             ###############################################################################  
                             #Export to server - Generate Raport -- check ver OS Pl/EN
-                            New-PSDrive –Name “I” –PSProvider FileSystem –Root "\\MCC-EU-WSR01\ModulePS1" -Credential $Using:cred1
+                            New-PSDrive –Name “I” –PSProvider FileSystem –Root "" -Credential $Using:cred1
                              $space = '------------------'
                             if ((Get-WmiObject -Class Win32_OperatingSystem -Property Oslanguage | select -ExpandProperty OSLanguage)  -eq 1045) 
                                 {$env:computername >> $Using:pathraport   
@@ -155,9 +151,9 @@ foreach ($computer in $computers)
     ##################################################################################################
 
     
-$smtpServer="mcchvac-com0i.mail.protection.outlook.com" 
-$from = "Administrator IT <mcc-eu-wsr01@mcc-hvac.com>"  
- $emailaddress = "wojciech.konikiewicz@mcc-hvac.com" 
+$smtpServer="" 
+$from = ""  
+ $emailaddress = "" 
 # 
 ################################################################################################################### 
 ###COnvert to HTML################
