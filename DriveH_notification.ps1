@@ -1,7 +1,7 @@
 ﻿
-$smtpServer="mcchvac-com0i.mail.protection.outlook.com" 
-$from = "Administrator IT <mcc-eu-wsr01@mcc-hvac.com>"  
-#$emailaddres = "wojciech.konikiewicz@mcc-hvac.com"
+$smtpServer="" 
+$from = ""  
+#$emailaddres = ""
 $files= 'files.txt'
 # System Settings 
 $textEncoding = [System.Text.Encoding]::UTF8 
